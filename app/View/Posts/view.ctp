@@ -41,7 +41,8 @@
 </div>
 <div class="related">
 	<h3><?php echo __('Related Comments'); ?></h3>
-	<?php if (!empty($post['Comment'])): ?>
+	<?php if (!empty($post['Commen
+	t'])): ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php echo __('Id'); ?></th>
@@ -72,7 +73,7 @@
 
 	<div class="actions">
 		<ul>
-			<li><?php echo $this->Html->link(__('New Comment'), array('controller' => 'comments', 'action' => 'add')); ?> </li>
+			<li><?php echo $this->Html->link(__('New Comment'), array('controller' => 'comments', 'action' => 'add', $post['Post']['id'])); ?> </li>
 		</ul>
 	</div>
 </div>
