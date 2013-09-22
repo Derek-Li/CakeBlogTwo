@@ -17,14 +17,16 @@ class UsersController extends AppController {
         return true;
     }
 
-    public function makeAdmin($target) {
-            $this->set('target', $target); 
-            Debugger::dump($target);
+    public function makeAdmin($user) {
+            $this->set('user', $user); 
+            $user = 'admin';
+            /*Debugger::dump($target);
             $target = 'admin';
             $user['role'] = $target;
             $this->User->save;
             Debugger::dump($user['role']);
-            //$this->redirect(array('controller' => 'posts', 'action' => 'index'));
+            $this->redirect(array('controller' => 'posts', 'action' => 'index'));*/
+            Debugger::dump($user);
     }
 
     public function index() {

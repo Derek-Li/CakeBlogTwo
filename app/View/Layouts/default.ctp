@@ -19,8 +19,8 @@
 
 $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
 ?>
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
@@ -32,9 +32,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 
 		echo $this->Html->css('cake.generic');
 
-		echo $this->fetch('meta');
-		echo $this->fetch('css');
-		echo $this->fetch('script');
+		echo $scripts_for_layout;
 	?>
 </head>
 <body>
@@ -43,14 +41,28 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
 		</div>
 		<div id="content">
+		
+		    <div style="text-align: right;">
+		        <?php if ($logged_in): ?>
+		            Welcome <?php echo $current_user['username']; ?>. <?php echo $this->Html->link('Logout', array('controller'=>'users', 'action'=>'logout')); ?>
+		        <?php else: ?>
+		            <?php echo $this->Html->link('Login', array('controller'=>'users', 'action'=>'login')); ?>
+		        <?php endif; ?>
+		    </div>
+
+			<div style="text-align: right;">
+		    	<?php echo $this->Html->link('List Users', array('action' => 'index')); ?>
+		    </div>
 
 			<?php echo $this->Session->flash(); ?>
+			<?php echo $this->Session->flash('auth'); ?>
 
-			<?php echo $this->fetch('content'); ?>
+			<?php echo $content_for_layout; ?>
+
 		</div>
 		<div id="footer">
 			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
+					$this->Html->image('cake.power.gif', array('alt'=> $cakeDescription, 'border' => '0')),
 					'http://www.cakephp.org/',
 					array('target' => '_blank', 'escape' => false)
 				);
