@@ -27,7 +27,7 @@
 	<h3>Actions</h3>
 	<ul>
 		<?php if ($current_user['role'] == 'admin'): ?>
-			<li><?php echo $this->Html->link('Make admin', array('action' => 'makeAdmin', $user['User']['role'])); ?> </li>
+			<li><?php echo $this->Html->link('Change Role', array('action' => 'changeRole', $user['User']['username'], $user['User']['role'])); ?> </li>
 		<?php endif; ?>
 	    <?php if ($current_user['id'] == $user['User']['id'] || $current_user['role'] == 'admin'): ?>
 		    <li><?php echo $this->Html->link('Edit User', array('action' => 'edit', $user['User']['id'])); ?> </li>
