@@ -1,11 +1,11 @@
 <div class="users view">
 <h2>User</h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>>Id</dt>
+		<!-- <dt<?php if ($i % 2 == 0) echo $class;?>>Id</dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $user['User']['id']; ?>
 			&nbsp;
-		</dd>
+		</dd> -->
 		<dt<?php if ($i % 2 == 0) echo $class;?>>Name</dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $user['User']['name']; ?>

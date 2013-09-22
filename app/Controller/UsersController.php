@@ -10,6 +10,9 @@ class UsersController extends AppController {
 
     public function isAuthorized($user) {
         if(in_array($this->action, array('edit', 'delete'))) {
+            if($user['role'] == 'admin') {
+                return true;
+            }
             if($user['id'] != $this->request->params['pass'][0]) {
                 return false;
             }
@@ -64,6 +67,9 @@ class UsersController extends AppController {
 
     public function add() {
         if($this->request->is('post')) {
+            if($this->request->data['User']['password']) {
+                $this->request->data['User']['password'] = AuthComponent::password($this->data['User']['password']);
+            }
             if($this->User->save($this->request->data)) {
                 $this->Session->setFlash('The user has been saved');
                 $this->redirect(array('action' => 'index'));

@@ -2,7 +2,7 @@
 	<h2>Users</h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th>Id</th>
+			<!-- <th>Id</th> -->
 			<th>Name</th>
 			<th>Username</th>
 			<th>Email</th>
@@ -18,7 +18,7 @@
 		}
 	?>
 	<tr<?php echo $class;?>>
-		<td><?php echo $user['User']['id']; ?>&nbsp;</td>
+		<!-- <td><?php echo $user['User']['id']; ?>&nbsp;</td> -->
 		<td><?php echo $this->Html->link($user['User']['name'], array('controller' => 'users', 'action' => 'view', $user['User']['id'])); ?>&nbsp;</td>
 		<td><?php echo $user['User']['username']; ?>&nbsp;</td>
 		<td><?php echo $user['User']['email']; ?>&nbsp;</td>

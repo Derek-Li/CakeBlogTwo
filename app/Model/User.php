@@ -52,12 +52,13 @@ class User extends AppModel {
 	    return false;
 	}*/
 	
-	public function beforeSave($options = array()) {
+	/*public function beforeSave($options = array()) {
+		//$this->User->find();
 	    if (isset($this->data['User']['password'])) {
 	        $this->data['User']['password'] = AuthComponent::password($this->data['User']['password']);
 	    }
 	    return true;
-	}
+	}*/
 }
 ?>
 	
