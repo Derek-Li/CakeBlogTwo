@@ -3,6 +3,7 @@
 	<fieldset>
 		<legend><?php echo __('Add Post'); ?></legend>
 	<?php
+		echo $this->Form->input('user_id', array('type' => 'hidden', 'value' => $current_user['id']));
 		echo $this->Form->input('title');
 		echo $this->Form->input('body');
 	?>

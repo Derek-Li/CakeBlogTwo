@@ -51,7 +51,10 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		    </div>
 
 			<div style="text-align: right;">
-		    	<?php echo $this->Html->link('List Users', array('action' => 'index')); ?>
+				<?php if($current_user['role'] == 'admin'): {
+					echo $this->Html->link('List Users', array('controller' => 'users', 'action' => 'index'));
+				} ?>
+				<?php endif; ?>
 		    </div>
 
 			<?php echo $this->Session->flash(); ?>

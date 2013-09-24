@@ -58,8 +58,6 @@ public function add($postId) {
 	$posts = $this->Comment->Post->find('list');
 	$this->set(compact('posts'));
 	$this->set('postId', $postId);
-
-
 }
 
 /**

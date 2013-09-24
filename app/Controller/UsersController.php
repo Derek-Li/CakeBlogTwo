@@ -9,7 +9,7 @@ class UsersController extends AppController {
     }
 
     public function isAuthorized($user) {
-        if(in_array($this->action, array('edit', 'delete'))) {
+        if(in_array($this->action, array('edit', 'delete', 'index'))) {
             if($user['role'] == 'admin') {
                 return true;
             }

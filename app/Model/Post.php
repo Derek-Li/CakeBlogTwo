@@ -14,6 +14,7 @@ class Post extends AppModel {
  */
 	public $displayField = 'title';
 
+	public $belongsTo = 'User';
 /**
  * Validation rules
  *

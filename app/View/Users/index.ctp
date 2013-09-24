@@ -24,9 +24,9 @@
 		<td><?php echo $user['User']['email']; ?>&nbsp;</td>
 		<td><?php echo $user['User']['role']; ?>&nbsp;</td>
 		<td class="actions">
-			<?php if ($current_user['id'] == $user['User']['id'] || $current_user['role'] == 'admin'): ?>
+			<!--<?php if ($current_user['id'] == $user['User']['id'] || $current_user['role'] == 'admin'): ?>
 				<?php echo $this->Html->link('View', array('action' => 'view', $user['User']['id'])); ?>
-			<?php endif; ?>
+			<?php endif; ?>-->
 
 			<?php if ($current_user['id'] == $user['User']['id'] || $current_user['role'] == 'admin'): ?>
 			    <?php echo $this->Html->link('Edit', array('action' => 'edit', $user['User']['id'])); ?>
