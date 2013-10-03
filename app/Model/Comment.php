@@ -51,11 +51,12 @@ class Comment extends AppModel {
  */
 	public $belongsTo = array(
 		'Post' => array(
-			'className' => 'Post',
+			'className' => 'Post', 'Comment',
 			'foreignKey' => 'post_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		)
 	);
+
 }

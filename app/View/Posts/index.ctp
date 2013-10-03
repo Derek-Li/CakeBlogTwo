@@ -3,7 +3,7 @@
 	<table cellpadding="0" cellspacing="0">
 		<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('user_id'); ?></th>
+			<!-- <th><?php echo $this->Paginator->sort('user_id'); ?></th> -->
 			<th><?php echo $this->Paginator->sort('username'); ?></th>
 			<th><?php echo $this->Paginator->sort('title'); ?></th>
 			<th><?php echo $this->Paginator->sort('body'); ?></th>
@@ -14,8 +14,9 @@
 		<?php foreach ($posts as $post): ?>
 		<tr>
 			<td><?php echo h($post['Post']['id']); ?>&nbsp;</td>
-			<td><?php echo h($post['Post']['user_id']); ?>&nbsp;</td>
-			<td><?php echo h($post['User']['username']); ?>&nbsp;</td>
+			<!-- <td><?php echo h($post['Post']['user_id']); ?>&nbsp;</td> -->
+			<!-- <td><?php echo h($post['User']['username']); ?>&nbsp;</td> -->
+			<td><?php echo $this->Html->link($post['User']['username'], array('controller' => 'users', 'action' => 'view', $post['User']['id'])); ?>&nbsp;</td>
 			<td><?php echo $this->Html->link($post['Post']['title'], array('controller' => 'posts', 'action' => 'view', $post['Post']['id'])); ?>&nbsp;</td>
 			<td><?php echo h($post['Post']['body']); ?>&nbsp;</td>
 			<td><?php echo h($post['Post']['created']); ?>&nbsp;</td>
@@ -26,8 +27,9 @@
 					<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $post['Post']['id'])); ?>
 					<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $post['Post']['id']), null, __('Are you sure you want to delete # %s?', $post['Post']['id'])); ?>
 				<?php endif; ?>
-				<?php echo $this->Html->link(__('Comment'), array('controller' => 'comments', 'action' => 'add', $post['Post']['id'])); ?>
-				<!-- <?php echo $this->Html->link(__('New Post'), array('action' => 'add', $post['Post']['user_id'])); ?> -->
+				<?php if($current_user['role'] == 'regular' || $current_user['role'] == 'admin'): ?>
+					<?php echo $this->Html->link(__('Comment'), array('controller' => 'comments', 'action' => 'add', $post['Post']['id'])); ?>				
+				<?php endif; ?>
 			</td>
 		</tr>
 		<?php endforeach; ?>

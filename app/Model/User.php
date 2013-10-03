@@ -11,8 +11,8 @@ class User extends AppModel {
 			)
 		),
 		'username'=>array(
-			'The username must be between 5 and 15 characters.'=>array(
-				'rule'=>array('between', 5, 15),
+			'The username must be between 5 and 50 characters.'=>array(
+				'rule'=>array('between', 5, 50),
 				'message'=>'The username must be between 5 and 15 characters.'
 			),
 			'That username has already been taken'=>array(

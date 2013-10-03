@@ -4,7 +4,6 @@
 		<legend><?php echo __('Edit Comment'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('post_id');
 		echo $this->Form->input('name');
 		echo $this->Form->input('content');
 	?>
